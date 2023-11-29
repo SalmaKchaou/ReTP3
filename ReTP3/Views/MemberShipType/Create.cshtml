@@ -1,0 +1,50 @@
+﻿@model ReTP3.Models.MemberShipType
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Member Ship Type </h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SignUpFee" class="control-label">Sign-Up Fee</label>
+                <input asp-for="SignUpFee" class="form-control" />
+                <span asp-validation-for="SignUpFee" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DurationMonth" class="control-label">Duration (in months)</label>
+                <input asp-for="DurationMonth" class="form-control" />
+                <span asp-validation-for="DurationMonth" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DiscountRate" class="control-label">Discount Rate</label>
+                <input asp-for="DiscountRate" class="form-control" />
+                <span asp-validation-for="DiscountRate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

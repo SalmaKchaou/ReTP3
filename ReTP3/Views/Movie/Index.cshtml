@@ -1,0 +1,55 @@
+﻿@model IEnumerable<ReTP3.Models.Movie>
+@*@{
+    Layout ="~/Views/Shared/_Layout.cshtml";
+}*@
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+<p>Bonjour ceci est une vue ! </p>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MovieAdded)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Photo)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MovieAdded)
+                </td>
+                <td>
+                    @if (!string.IsNullOrEmpty(@item.Photo))
+                    {
+                        <img src="/@item.Photo" alt="Photo" style="max-height: 10rem; max-width: 10rem;">
+                    }
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+
+        }
+    </tbody>
+</table>
